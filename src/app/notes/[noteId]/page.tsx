@@ -1,12 +1,19 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export default function Note({
-  params,
-}: {
+type Props = {
   params: {
     noteId: string;
   };
-}) {
+};
+
+export const generateMetadata = ({ params }: Props): Metadata => {
+  return {
+    title: `Note Details ${params.noteId}`,
+  };
+};
+
+export default function Note({ params }: Props) {
   if (parseInt(params.noteId) > 100) {
     notFound();
   }
