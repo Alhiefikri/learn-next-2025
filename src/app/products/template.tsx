@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function RootLayout({
   children,
@@ -9,9 +10,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const [search, setSearch] = useState("");
 
   return (
     <>
+      <input type="text" onChange={(e) => setSearch(e.target.value)} />
       <ul className="flex text-sm text-blue-300 gap-4">
         <Link
           className={pathname === "/products/food" ? "text-red-200" : ""}
