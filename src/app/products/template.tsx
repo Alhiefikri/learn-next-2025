@@ -11,10 +11,11 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const [search, setSearch] = useState("");
-
+  console.log(search);
   return (
     <>
       <input type="text" onChange={(e) => setSearch(e.target.value)} />
+
       <ul className="flex text-sm text-blue-300 gap-4">
         <Link
           className={pathname === "/products/food" ? "text-red-200" : ""}
